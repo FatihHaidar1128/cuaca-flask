@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuaca - IBOGOR126</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Cuaca Terkini</h1>
+    <div id="weather">Memuat data cuaca...</div>
+  </div>
+  <script src="/static/script.js"></script>
+  <script>setInterval(() => {
+    fetch('/cuaca')
+      .then(res => res.json())
+      .then(data => {
+        // Update elemen cuaca kamu di sini
+        console.log("Data diperbarui:", data);
+      });
+  }, 5 * 60 * 1000); // 5 menit
+</script>
+</body>
+</html>
